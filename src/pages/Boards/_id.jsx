@@ -7,6 +7,7 @@ import AppBar from "../../components/AppBar";
 export default function Board() {
   return (
     <Container
+      disablePadding
       disableGutters
       maxWidth={false}
       sx={{ height: "100vh", backgroundColor: "primary.main" }}
