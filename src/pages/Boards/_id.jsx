@@ -10,7 +10,7 @@ export default function Board() {
       disablePadding
       disableGutters
       maxWidth={false}
-      sx={{ height: "100vh", backgroundColor: "primary.main" }}
+      sx={{ height: "100vh" }}
     >
       <AppBar></AppBar>
       <BoardBar></BoardBar>
