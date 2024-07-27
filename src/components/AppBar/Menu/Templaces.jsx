@@ -32,7 +32,6 @@ const Templaces = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
         endIcon={<ExpandMoreIcon />}
-        sx={{ fontSize: "0.8rem" }}
       >
         Templaces
       </Button>
