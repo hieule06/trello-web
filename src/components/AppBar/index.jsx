@@ -10,62 +10,83 @@ import Profiles from "./Menu/Profiles";
 import { Badge, Tooltip } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 export default function AppBar() {
-  return (
-    <Box
-      px={2}
-      sx={{
-        height: (theme) => theme.trello.appBarHeight,
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between"
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
-        <AppsIcon sx={{ color: "primary.main" }}></AppsIcon>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <SvgIcon
-            component={trelloLogo}
-            inheritViewBox
-            sx={{ color: "primary.main" }}
-          />
-          <Typography
-            pl={0.5}
+    return (
+        <Box
             sx={{
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              color: "primary.main"
+                height: (theme) => theme.trello.appBarHeight,
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                overflow: "auto",
+                px: 2,
+                gap: 2,
             }}
-          >
-            Trello
-          </Typography>
+        >
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
+                <AppsIcon sx={{ color: "primary.main" }}></AppsIcon>
+                <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <SvgIcon
+                        component={trelloLogo}
+                        inheritViewBox
+                        sx={{ color: "primary.main" }}
+                        fontSize="small"
+                    />
+                    <Typography
+                        pl={0.5}
+                        sx={{
+                            fontSize: "1.2rem",
+                            fontWeight: "bold",
+                            color: "primary.main",
+                        }}
+                    >
+                        Trello
+                    </Typography>
+                </Box>
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                    <Workspaces></Workspaces>
+                    <Recent></Recent>
+                    <Starred></Starred>
+                    <Templaces></Templaces>
+                    <Button variant="outlined" startIcon={<LibraryAddIcon />}>
+                        Create
+                    </Button>
+                </Box>
+            </Box>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1.2,
+                }}
+            >
+                <TextField
+                    label="Search"
+                    id="outlined-search"
+                    type="search"
+                    size="small"
+                    sx={{ minWidth: 120 }}
+                />
+                <ModeSelect></ModeSelect>
+                <Tooltip
+                    title="Notification"
+                    sx={{ cursor: "pointer", color: "primary.main" }}
+                >
+                    <Badge color="secondary" variant="dot">
+                        <NotificationsNoneIcon />
+                    </Badge>
+                </Tooltip>
+                <Tooltip
+                    title="Help"
+                    sx={{ cursor: "pointer", color: "primary.main" }}
+                >
+                    <HelpOutlineIcon></HelpOutlineIcon>
+                </Tooltip>
+                <Profiles></Profiles>
+            </Box>
         </Box>
-        <Workspaces></Workspaces>
-        <Recent></Recent>
-        <Starred></Starred>
-        <Templaces></Templaces>
-        <Button variant="outlined">Create</Button>
-      </Box>
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
-        <TextField
-          label="Search"
-          id="outlined-search"
-          type="search"
-          size="small"
-        />
-        <ModeSelect></ModeSelect>
-        <Tooltip title="Notification" sx={{ cursor: "pointer" }}>
-          <Badge color="secondary" variant="dot">
-            <NotificationsNoneIcon />
-          </Badge>
-        </Tooltip>
-        <Tooltip title="Help" sx={{ cursor: "pointer" }}>
-          <HelpOutlineIcon></HelpOutlineIcon>
-        </Tooltip>
-        <Profiles></Profiles>
-      </Box>
-    </Box>
-  );
+    );
 }
