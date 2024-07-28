@@ -8,18 +8,18 @@ const theme = extendTheme({
         appBarHeight: "58px",
     },
     colorSchemes: {
-        light: {
-            palette: {
-                primary: teal,
-                secondary: deepOrange,
-            },
-        },
-        dark: {
-            palette: {
-                primary: cyan,
-                secondary: orange,
-            },
-        },
+        // light: {
+        //     palette: {
+        //         primary: teal,
+        //         secondary: deepOrange,
+        //     },
+        // },
+        // dark: {
+        //     palette: {
+        //         primary: cyan,
+        //         secondary: orange,
+        //     },
+        // },
     },
     components: {
         MuiCssBaseline: {
@@ -43,28 +43,39 @@ const theme = extendTheme({
             styleOverrides: {
                 root: {
                     textTransform: "none",
+                    color: "white",
+                    borderColor: "white",
+                    borderWidth: "0.5px",
                 },
             },
         },
         MuiInputLabel: {
             styleOverrides: {
                 root: ({ theme }) => ({
-                    color: theme.palette.primary.main,
+                    // color: theme.palette.primary.main,
                     fontSize: "0.875rem",
+                    color: "white",
                 }),
             },
         },
         MuiOutlinedInput: {
             styleOverrides: {
                 root: ({ theme }) => ({
-                    color: theme.palette.primary.main,
+                    // color: theme.palette.primary.main,
+                    color: "white",
                     fontSize: "0.875rem",
+                    svg: {
+                        color: "white",
+                    },
                     ".MuiOutlinedInput-notchedOutline": {
-                        borderColor: theme.palette.primary.light,
+                        borderColor: "white",
+                        borderWidth: "0.5px",
+                        // borderColor: theme.palette.primary.light,
                     },
                     "&:hover": {
                         ".MuiOutlinedInput-notchedOutline": {
-                            borderColor: theme.palette.primary.main,
+                            borderColor: "white",
+                            // borderColor: theme.palette.primary.main,
                         },
                     },
                 }),

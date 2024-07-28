@@ -11,6 +11,8 @@ import { Badge, Tooltip } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
+import { InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function AppBar() {
     return (
@@ -24,15 +26,17 @@ export default function AppBar() {
                 overflow: "auto",
                 px: 2,
                 gap: 2,
+                bgcolor: (theme) =>
+                    theme.palette.mode === "dark" ? "#212121" : "#01579b",
+                color: "white",
             }}
         >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
-                <AppsIcon sx={{ color: "primary.main" }}></AppsIcon>
+                <AppsIcon></AppsIcon>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <SvgIcon
                         component={trelloLogo}
                         inheritViewBox
-                        sx={{ color: "primary.main" }}
                         fontSize="small"
                     />
                     <Typography
@@ -40,7 +44,6 @@ export default function AppBar() {
                         sx={{
                             fontSize: "1.2rem",
                             fontWeight: "bold",
-                            color: "primary.main",
                         }}
                     >
                         Trello
@@ -68,21 +71,43 @@ export default function AppBar() {
                     id="outlined-search"
                     type="search"
                     size="small"
-                    sx={{ minWidth: 120 }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    sx={{
+                        minWidth: 120,
+                        "& label": { color: "white" },
+                        "& input": { color: "white" },
+                        "& label.Mui-focused": { color: "white" },
+                        "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                                borderColor: "white",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "white",
+                            },
+                            color: "white",
+
+                            /* "input[type='search']::-webkit-search-cancel-button":
+                                {
+                                    "&:hover": {
+                                        color: "white",
+                                    },
+                                }, */
+                        },
+                    }}
                 />
                 <ModeSelect></ModeSelect>
-                <Tooltip
-                    title="Notification"
-                    sx={{ cursor: "pointer", color: "primary.main" }}
-                >
-                    <Badge color="secondary" variant="dot">
+                <Tooltip title="Notification" sx={{ cursor: "pointer" }}>
+                    <Badge variant="dot">
                         <NotificationsNoneIcon />
                     </Badge>
                 </Tooltip>
-                <Tooltip
-                    title="Help"
-                    sx={{ cursor: "pointer", color: "primary.main" }}
-                >
+                <Tooltip title="Help" sx={{ cursor: "pointer" }}>
                     <HelpOutlineIcon></HelpOutlineIcon>
                 </Tooltip>
                 <Profiles></Profiles>
