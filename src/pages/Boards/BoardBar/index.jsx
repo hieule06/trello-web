@@ -172,6 +172,10 @@ export default function BoardBar() {
                         "& .MuiAvatar-root": {
                             width: "32px",
                             height: "32px",
+                            border: "none",
+                        },
+                        "&:hover": {
+                            cursor: "pointer",
                         },
                     }}
                 >
