@@ -16,7 +16,24 @@ export default function ModeSelect() {
     };
 
     return (
-        <FormControl size="small" sx={{ minWidth: 120 }}>
+        <FormControl
+            size="small"
+            sx={{
+                minWidth: 120,
+                "& label": { color: "white" },
+                "& input": { color: "white" },
+                "& label.Mui-focused": { color: "white" },
+                "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                        borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                        borderColor: "white",
+                    },
+                    color: "white",
+                },
+            }}
+        >
             <InputLabel id="label-select-duck-light-mode">Mode</InputLabel>
             <Select
                 labelId="label-select-duck-light-mode"

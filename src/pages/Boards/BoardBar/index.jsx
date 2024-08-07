@@ -17,23 +17,36 @@ export default function BoardBar() {
                 alignItems: "center",
                 justifyContent: "space-between",
                 px: 2,
-                borderTop: "1px solid #00bfa5",
                 overflowX: "auto",
                 gap: 2,
+                bgcolor: (theme) =>
+                    theme.palette.mode === "dark" ? "#34495e" : "#3498db",
             }}
         >
-            <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 2,
+                }}
+            >
                 <Chip
                     sx={{
-                        color: "primary.main",
-                        backgroundColor: "white",
+                        color: "#FFFFFF",
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#34495e"
+                                : "#3498db",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
-                            color: "primary.main",
+                            color: "#FFFFFF",
                         },
                         "&:hover": {
-                            bgcolor: "primary.50",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
                         },
                     }}
                     icon={<DashboardIcon />}
@@ -42,15 +55,22 @@ export default function BoardBar() {
                 />
                 <Chip
                     sx={{
-                        color: "primary.main",
-                        backgroundColor: "white",
+                        color: "#FFFFFF",
+
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#34495e"
+                                : "#3498db",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
-                            color: "primary.main",
+                            color: "#FFFFFF",
                         },
                         "&:hover": {
-                            bgcolor: "primary.50",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
                         },
                     }}
                     icon={<VpnLockIcon />}
@@ -59,15 +79,22 @@ export default function BoardBar() {
                 />
                 <Chip
                     sx={{
-                        color: "primary.main",
-                        backgroundColor: "white",
+                        color: "#FFFFFF",
+
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#34495e"
+                                : "#3498db",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
-                            color: "primary.main",
+                            color: "#FFFFFF",
                         },
                         "&:hover": {
-                            bgcolor: "primary.50",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
                         },
                     }}
                     icon={<AddToDriveIcon />}
@@ -76,15 +103,22 @@ export default function BoardBar() {
                 />
                 <Chip
                     sx={{
-                        color: "primary.main",
-                        backgroundColor: "white",
+                        color: "#FFFFFF",
+
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#34495e"
+                                : "#3498db",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
-                            color: "primary.main",
+                            color: "#FFFFFF",
                         },
                         "&:hover": {
-                            bgcolor: "primary.50",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
                         },
                     }}
                     icon={<BoltIcon />}
@@ -93,15 +127,22 @@ export default function BoardBar() {
                 />
                 <Chip
                     sx={{
-                        color: "primary.main",
-                        backgroundColor: "white",
+                        color: "#FFFFFF",
+
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#34495e"
+                                : "#3498db",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
-                            color: "primary.main",
+                            color: "#FFFFFF",
                         },
                         "&:hover": {
-                            bgcolor: "primary.50",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
                         },
                     }}
                     icon={<FilterListIcon />}
@@ -110,7 +151,19 @@ export default function BoardBar() {
                 />
             </Box>
             <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <Button variant="outlined" startIcon={<PersonAddIcon />}>
+                <Button
+                    variant="outlined"
+                    startIcon={<PersonAddIcon />}
+                    sx={{
+                        "&:hover": {
+                            borderColor: "#FFFFFF",
+                            bgcolor: (theme) =>
+                                theme.palette.mode === "dark"
+                                    ? "#2c3e50"
+                                    : "#0379c9",
+                        },
+                    }}
+                >
                     Invite
                 </Button>
                 <AvatarGroup

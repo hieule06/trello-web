@@ -54,7 +54,19 @@ export default function AppBar() {
                     <Recent></Recent>
                     <Starred></Starred>
                     <Templaces></Templaces>
-                    <Button variant="outlined" startIcon={<LibraryAddIcon />}>
+                    <Button
+                        variant="outlined"
+                        startIcon={<LibraryAddIcon />}
+                        sx={{
+                            "&:hover": {
+                                borderColor: "#FFFFFF",
+                                bgcolor: (theme) =>
+                                    theme.palette.mode === "dark"
+                                        ? "#2c3e50"
+                                        : "#0379c9",
+                            },
+                        }}
+                    >
                         Create
                     </Button>
                 </Box>
@@ -92,12 +104,16 @@ export default function AppBar() {
                             },
                             color: "white",
 
-                            /* "input[type='search']::-webkit-search-cancel-button":
+                            '& input[type="search"]::-webkit-search-cancel-button':
                                 {
-                                    "&:hover": {
-                                        color: "white",
-                                    },
-                                }, */
+                                    "-webkit-appearance": "none",
+                                    appearance: "none",
+                                    height: "16px",
+                                    width: "16px",
+                                    background:
+                                        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFF'%3E%3Cpath d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E\") no-repeat",
+                                    cursor: "pointer",
+                                },
                         },
                     }}
                 />
