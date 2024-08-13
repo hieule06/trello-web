@@ -36,10 +36,10 @@ const theme = extendTheme({
                     },
                     "*::-webkit-scrollbar-thumb": {
                         backgroundColor: "#bdc3c7",
-                        borderRadius: "8px",
+                        borderRadius: "6px",
                     },
                     "*::-webkit-scrollbar-thumb:hover": {
-                        backgroundColor: "#00b894",
+                        backgroundColor: "#9ca5a9",
                     },
                 },
             },
@@ -84,6 +84,15 @@ const theme = extendTheme({
                         },
                     },
                 }),
+            },
+        },
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    "&.MuiTypography-body1": {
+                        fontSize: "0.875rem",
+                    },
+                },
             },
         },
     },

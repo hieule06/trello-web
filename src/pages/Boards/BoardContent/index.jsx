@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button, Tooltip } from "@mui/material";
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
@@ -15,6 +15,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import PeopleIcon from "@mui/icons-material/People";
+import CommentIcon from "@mui/icons-material/Comment";
+import InsertLinkIcon from "@mui/icons-material/InsertLink";
+import AddCardIcon from "@mui/icons-material/AddCard";
+import DragHandleIcon from "@mui/icons-material/DragHandle";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -28,7 +33,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function BoardContent() {
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = React.useState(true);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -36,104 +41,354 @@ export default function BoardContent() {
     return (
         <Box
             sx={{
-                borderTop: "1px solid #FFFFFF",
                 width: "100%",
                 height: (theme) => `${theme.trello.boardContentHeight}`,
                 display: "flex",
-                alignItems: "center",
                 bgcolor: (theme) =>
                     theme.palette.mode === "dark" ? "#34495e" : "#3498db",
+                padding: 2,
             }}
         >
-            <Box>
-                <Card sx={{ maxWidth: 345 }}>
-                    <CardHeader
-                        avatar={
-                            <Avatar
-                                sx={{ bgcolor: red[500] }}
-                                aria-label="recipe"
+            <Card
+                sx={{
+                    height: "fit-content",
+                    bgcolor: (theme) =>
+                        theme.palette.mode === "dark" ? "#2c2c2c" : "#bdc3c7",
+                    marginRight: "20px",
+                }}
+            >
+                <CardActions disableSpacing>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontSize: "1rem",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Column title
+                    </Typography>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                        sx={{
+                            paddingLeft: 0,
+                        }}
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+                <Card
+                    sx={{
+                        width: "250px",
+                        maxHeight: "60vh",
+                        overflowY: "auto",
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#2c2c2c"
+                                : "#bdc3c7",
+                        padding: "0 5px",
+                        margin: "0 5px",
+                        boxShadow: "none",
+                        "&::-webkit-scrollbar-thumb": {
+                            backgroundColor: "#9ca5a9",
+                        },
+                    }}
+                >
+                    <Collapse
+                        in={expanded}
+                        timeout="auto"
+                        unmountOnExit
+                        sx={{
+                            borderRadius: "4px",
+                        }}
+                    >
+                        <Card>
+                            <CardContent
+                                sx={{
+                                    "&:last-child": { p: 0 },
+                                }}
                             >
-                                R
-                            </Avatar>
-                        }
-                        action={
-                            <IconButton aria-label="settings">
-                                <MoreVertIcon />
-                            </IconButton>
-                        }
-                        title="Shrimp and Chorizo Paella"
-                        subheader="September 14, 2016"
-                    />
-                    <CardMedia
-                        component="img"
-                        height="194"
-                        image="/static/images/cards/paella.jpg"
-                        alt="Paella dish"
-                    />
-                    <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                            This impressive paella is a perfect party dish and a
-                            fun meal to cook together with your guests. Add 1
-                            cup of frozen peas along with the mussels, if you
-                            like.
-                        </Typography>
-                    </CardContent>
-                    <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
-                            <FavoriteIcon />
-                        </IconButton>
-                        <IconButton aria-label="share">
-                            <ShareIcon />
-                        </IconButton>
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
+                                <CardMedia
+                                    component="img"
+                                    height="194"
+                                    image="/src/assets/images/paella.jpg"
+                                    alt="Paella dish"
+                                    sx={{
+                                        borderTopRightRadius: "4px",
+                                        borderTopLeftRadius: "4px",
+                                    }}
+                                />
+                                <Typography
+                                    paragraph
+                                    sx={{
+                                        padding: "10px 10px 0 10px",
+                                        margin: 0,
+                                    }}
+                                >
+                                    Heat 1/2 cup of the broth in a pot until
+                                </Typography>
+                                <CardActions sx={{ padding: "8px 0" }}>
+                                    <Button
+                                        size="small"
+                                        startIcon={<PeopleIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        20
+                                    </Button>
+                                    <Button
+                                        size="small"
+                                        startIcon={<CommentIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        15
+                                    </Button>
+                                    <Button
+                                        size="small"
+                                        startIcon={<InsertLinkIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        10
+                                    </Button>
+                                </CardActions>
+                            </CardContent>
+                        </Card>
+                        <Card
+                            sx={{
+                                cursor: "pointer",
+                                marginBlock: "10px",
+                            }}
                         >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
-                    </CardActions>
-                    <Collapse in={expanded} timeout="auto" unmountOnExit>
-                        <CardContent>
-                            <Typography paragraph>Method:</Typography>
-                            <Typography paragraph>
-                                Heat 1/2 cup of the broth in a pot until
-                                simmering, add saffron and set aside for 10
-                                minutes.
-                            </Typography>
-                            <Typography paragraph>
-                                Heat oil in a (14- to 16-inch) paella pan or a
-                                large, deep skillet over medium-high heat. Add
-                                chicken, shrimp and chorizo, and cook, stirring
-                                occasionally until lightly browned, 6 to 8
-                                minutes. Transfer shrimp to a large plate and
-                                set aside, leaving chicken and chorizo in the
-                                pan. Add pimentón, bay leaves, garlic, tomatoes,
-                                onion, salt and pepper, and cook, stirring often
-                                until thickened and fragrant, about 10 minutes.
-                                Add saffron broth and remaining 4 1/2 cups
-                                chicken broth; bring to a boil.
-                            </Typography>
-                            <Typography paragraph>
-                                Add rice and stir very gently to distribute. Top
-                                with artichokes and peppers, and cook without
-                                stirring, until most of the liquid is absorbed,
-                                15 to 18 minutes. Reduce heat to medium-low, add
-                                reserved shrimp and mussels, tucking them down
-                                into the rice, and cook again without stirring,
-                                until mussels have opened and rice is just
-                                tender, 5 to 7 minutes more. (Discard any
-                                mussels that don&apos;t open.)
-                            </Typography>
-                            <Typography>
-                                Set aside off of the heat to let rest for 10
-                                minutes, and then serve.
-                            </Typography>
-                        </CardContent>
+                            <CardContent
+                                sx={{
+                                    boxShadow: "1px 1px rgba(0, 0, 0, 0.2)",
+                                    "&:last-child": { p: 1.5 },
+                                }}
+                            >
+                                <Typography paragraph sx={{ margin: 0 }}>
+                                    Card 01
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                        <Card
+                            sx={{
+                                cursor: "pointer",
+                                marginBlock: "10px",
+                            }}
+                        >
+                            <CardContent
+                                sx={{
+                                    boxShadow: "1px 1px rgba(0, 0, 0, 0.2)",
+                                    "&:last-child": { p: 1.5 },
+                                }}
+                            >
+                                <Typography paragraph sx={{ margin: 0 }}>
+                                    Card 01
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                        <Card
+                            sx={{
+                                cursor: "pointer",
+                                marginBlock: "10px",
+                            }}
+                        >
+                            <CardContent
+                                sx={{
+                                    boxShadow: "1px 1px rgba(0, 0, 0, 0.2)",
+                                    "&:last-child": { p: 1.5 },
+                                }}
+                            >
+                                <Typography paragraph sx={{ margin: 0 }}>
+                                    Card 01
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                        <Card
+                            sx={{
+                                cursor: "pointer",
+                                marginBlock: "10px",
+                            }}
+                        >
+                            <CardContent
+                                sx={{
+                                    boxShadow: "1px 1px rgba(0, 0, 0, 0.2)",
+                                    "&:last-child": { p: 1.5 },
+                                }}
+                            >
+                                <Typography paragraph sx={{ margin: 0 }}>
+                                    Card 01
+                                </Typography>
+                            </CardContent>
+                        </Card>
                     </Collapse>
                 </Card>
-            </Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "4px 0",
+                        color: "#0586fa",
+                    }}
+                >
+                    <Button
+                        startIcon={<AddCardIcon />}
+                        sx={{ color: "#0586fa" }}
+                    >
+                        Add new card
+                    </Button>
+                    <Tooltip title="Drag to move">
+                        <DragHandleIcon sx={{ cursor: "pointer" }} />
+                    </Tooltip>
+                </Box>
+            </Card>
+            <Card
+                sx={{
+                    height: "fit-content",
+                    bgcolor: (theme) =>
+                        theme.palette.mode === "dark" ? "#2c2c2c" : "#bdc3c7",
+                    marginRight: "20px",
+                    padding: "0 10px",
+                }}
+            >
+                <CardActions disableSpacing>
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            fontSize: "1rem",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Column title
+                    </Typography>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                        sx={{
+                            paddingLeft: 0,
+                        }}
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+                <Card
+                    sx={{
+                        width: "250px",
+                        maxHeight: "60vh",
+                        overflowY: "auto",
+                        bgcolor: (theme) =>
+                            theme.palette.mode === "dark"
+                                ? "#2c2c2c"
+                                : "#bdc3c7",
+                        padding: "0 5px",
+                        margin: "0 5px",
+                        boxShadow: "none",
+                        "&::-webkit-scrollbar-thumb": {
+                            backgroundColor: "#9ca5a9",
+                        },
+                    }}
+                >
+                    <Collapse
+                        in={expanded}
+                        timeout="auto"
+                        unmountOnExit
+                        sx={{
+                            borderRadius: "4px",
+                        }}
+                    >
+                        <Card>
+                            <CardContent
+                                sx={{
+                                    "&:last-child": { p: 0 },
+                                }}
+                            >
+                                <CardMedia
+                                    component="img"
+                                    height="194"
+                                    image="/src/assets/images/paella.jpg"
+                                    alt="Paella dish"
+                                    sx={{
+                                        borderTopRightRadius: "4px",
+                                        borderTopLeftRadius: "4px",
+                                    }}
+                                />
+                                <Typography
+                                    paragraph
+                                    sx={{
+                                        padding: "10px 10px 0 10px",
+                                        margin: 0,
+                                    }}
+                                >
+                                    Heat 1/2 cup of the broth in a pot until
+                                </Typography>
+                                <CardActions sx={{ padding: "8px 0" }}>
+                                    <Button
+                                        size="small"
+                                        startIcon={<PeopleIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        20
+                                    </Button>
+                                    <Button
+                                        size="small"
+                                        startIcon={<CommentIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        15
+                                    </Button>
+                                    <Button
+                                        size="small"
+                                        startIcon={<InsertLinkIcon />}
+                                        sx={{ color: "#0586fa" }}
+                                    >
+                                        10
+                                    </Button>
+                                </CardActions>
+                            </CardContent>
+                        </Card>
+                        <Card
+                            sx={{
+                                cursor: "pointer",
+                                marginBlock: "10px",
+                            }}
+                        >
+                            <CardContent
+                                sx={{
+                                    boxShadow: "1px 1px rgba(0, 0, 0, 0.2)",
+                                    "&:last-child": { p: 1.5 },
+                                }}
+                            >
+                                <Typography paragraph sx={{ margin: 0 }}>
+                                    Card 01
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Collapse>
+                </Card>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "4px 0",
+                        color: "#0586fa",
+                    }}
+                >
+                    <Button
+                        startIcon={<AddCardIcon />}
+                        sx={{ color: "#0586fa" }}
+                    >
+                        Add new card
+                    </Button>
+                    <Tooltip title="Drag to move">
+                        <DragHandleIcon sx={{ cursor: "pointer" }} />
+                    </Tooltip>
+                </Box>
+            </Card>
         </Box>
     );
 }
