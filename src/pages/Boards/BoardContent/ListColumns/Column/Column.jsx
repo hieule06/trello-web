@@ -22,7 +22,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Column() {
+export default function Column({ firstCard }) {
     const [expanded, setExpanded] = React.useState(true);
 
     const handleExpandClick = () => {
@@ -74,7 +74,7 @@ export default function Column() {
                     },
                 }}
             >
-                <ListCards expanded={expanded} />
+                <ListCards expanded={expanded} firstCard={firstCard} />
             </Card>
             <Box
                 sx={{

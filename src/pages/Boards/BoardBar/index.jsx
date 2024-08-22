@@ -20,7 +20,7 @@ export default function BoardBar() {
                 overflowX: "auto",
                 gap: 2,
                 bgcolor: (theme) =>
-                    theme.palette.mode === "dark" ? "#34495e" : "#3498db",
+                    theme.palette.mode === "dark" ? "#34495e" : "#0075ff",
             }}
         >
             <Box
@@ -36,7 +36,7 @@ export default function BoardBar() {
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"
                                 ? "#34495e"
-                                : "#3498db",
+                                : "#0075ff",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
@@ -46,7 +46,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                     icon={<DashboardIcon />}
@@ -60,7 +60,7 @@ export default function BoardBar() {
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"
                                 ? "#34495e"
-                                : "#3498db",
+                                : "#0075ff",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
@@ -70,7 +70,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                     icon={<VpnLockIcon />}
@@ -84,7 +84,7 @@ export default function BoardBar() {
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"
                                 ? "#34495e"
-                                : "#3498db",
+                                : "#0075ff",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
@@ -94,7 +94,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                     icon={<AddToDriveIcon />}
@@ -108,7 +108,7 @@ export default function BoardBar() {
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"
                                 ? "#34495e"
-                                : "#3498db",
+                                : "#0075ff",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
@@ -118,7 +118,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                     icon={<BoltIcon />}
@@ -132,7 +132,7 @@ export default function BoardBar() {
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"
                                 ? "#34495e"
-                                : "#3498db",
+                                : "#0075ff",
                         border: "none",
                         borderRadius: "4px",
                         "& .MuiSvgIcon-root": {
@@ -142,7 +142,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                     icon={<FilterListIcon />}
@@ -160,7 +160,7 @@ export default function BoardBar() {
                             bgcolor: (theme) =>
                                 theme.palette.mode === "dark"
                                     ? "#2c3e50"
-                                    : "#0379c9",
+                                    : "#0098ff",
                         },
                     }}
                 >

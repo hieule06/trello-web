@@ -63,7 +63,7 @@ export default function AppBar() {
                                 bgcolor: (theme) =>
                                     theme.palette.mode === "dark"
                                         ? "#2c3e50"
-                                        : "#0379c9",
+                                        : "#0098ff",
                             },
                         }}
                     >

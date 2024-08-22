@@ -1,6 +1,7 @@
 //ListColumns
 import { Box } from "@mui/material";
 import Column from "./Column/Column";
+import ButtonAddFile from "~/components/ButtonAddFile";
 
 export default function ListColumns() {
     return (
@@ -10,12 +11,13 @@ export default function ListColumns() {
                 height: (theme) => `${theme.trello.boardContentHeight}`,
                 display: "flex",
                 bgcolor: (theme) =>
-                    theme.palette.mode === "dark" ? "#34495e" : "#3498db",
+                    theme.palette.mode === "dark" ? "#34495e" : "#0075ff",
                 padding: 2,
             }}
         >
             <Column />
-            <Column />
+            <Column firstCard />
+            <ButtonAddFile />
         </Box>
     );
 }
