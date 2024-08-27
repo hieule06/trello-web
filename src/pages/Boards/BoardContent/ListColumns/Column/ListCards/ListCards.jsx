@@ -2,7 +2,7 @@
 import { Collapse } from "@mui/material";
 import ItemCard from "./ItemCard/ItemCard";
 
-export default function ListCards({ expanded, firstCard }) {
+export default function ListCards({ expanded, listCards }) {
     return (
         <Collapse
             in={expanded}
@@ -12,11 +12,14 @@ export default function ListCards({ expanded, firstCard }) {
                 borderRadius: "4px",
             }}
         >
-            <ItemCard firstCard={firstCard} />
-            <ItemCard firstCard={firstCard} />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
+            {listCards.map((card, index) => (
+                <ItemCard
+                    key={card?._id}
+                    showImageCard={card?.cover}
+                    itemCard={card}
+                    indexCard={index}
+                />
+            ))}
         </Collapse>
     );
 }

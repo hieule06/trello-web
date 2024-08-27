@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import Column from "./Column/Column";
 import ButtonAddFile from "~/components/ButtonAddFile";
 
-export default function ListColumns() {
+export default function ListColumns({ data }) {
     return (
         <Box
             sx={{
@@ -15,8 +15,9 @@ export default function ListColumns() {
                 padding: 2,
             }}
         >
-            <Column />
-            <Column firstCard />
+            {data?.board?.columns.map((column) => (
+                <Column key={column._id} column={column} />
+            ))}
             <ButtonAddFile />
         </Box>
     );

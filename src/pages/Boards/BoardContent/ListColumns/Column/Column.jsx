@@ -22,12 +22,13 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Column({ firstCard }) {
+export default function Column({ column }) {
     const [expanded, setExpanded] = React.useState(true);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
     return (
         <Card
             sx={{
@@ -45,7 +46,7 @@ export default function Column({ firstCard }) {
                         fontWeight: "bold",
                     }}
                 >
-                    Column title
+                    {column?.title}
                 </Typography>
                 <ExpandMore
                     expand={expanded}
@@ -61,7 +62,7 @@ export default function Column({ firstCard }) {
             </CardActions>
             <Card
                 sx={{
-                    width: "250px",
+                    width: "300px",
                     maxHeight: "60vh",
                     overflowY: "auto",
                     bgcolor: (theme) =>
@@ -74,7 +75,7 @@ export default function Column({ firstCard }) {
                     },
                 }}
             >
-                <ListCards expanded={expanded} firstCard={firstCard} />
+                <ListCards expanded={expanded} listCards={column?.cards} />
             </Card>
             <Box
                 sx={{
