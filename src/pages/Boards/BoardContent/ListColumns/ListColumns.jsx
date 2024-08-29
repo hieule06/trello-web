@@ -4,6 +4,13 @@ import Column from "./Column/Column";
 import ButtonAddFile from "~/components/ButtonAddFile";
 
 export default function ListColumns({ data }) {
+    const listColumns = data?.board?.columns;
+    const listIdColumns = data?.board?.columnOrderIds;
+    const orderListColumns = listColumns.sort((a, b) => {
+        return (
+            listIdColumns.indexOf(a["_id"]) - listIdColumns.indexOf(b["_id"])
+        );
+    });
     return (
         <Box
             sx={{
@@ -15,9 +22,10 @@ export default function ListColumns({ data }) {
                 padding: 2,
             }}
         >
-            {data?.board?.columns.map((column) => (
-                <Column key={column._id} column={column} />
-            ))}
+            {orderListColumns &&
+                orderListColumns.map((column) => (
+                    <Column key={column._id} column={column} />
+                ))}
             <ButtonAddFile />
         </Box>
     );
