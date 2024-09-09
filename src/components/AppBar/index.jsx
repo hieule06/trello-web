@@ -11,6 +11,8 @@ import { Badge, Tooltip } from "@mui/material";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
+import { InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function AppBar() {
     return (
@@ -24,15 +26,17 @@ export default function AppBar() {
                 overflow: "auto",
                 px: 2,
                 gap: 2,
+                bgcolor: (theme) =>
+                    theme.palette.mode === "dark" ? "#212121" : "#01579b",
+                color: "white",
             }}
         >
             <Box sx={{ display: "flex", alignItems: "center", gap: 1.2 }}>
-                <AppsIcon sx={{ color: "primary.main" }}></AppsIcon>
+                <AppsIcon></AppsIcon>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <SvgIcon
                         component={trelloLogo}
                         inheritViewBox
-                        sx={{ color: "primary.main" }}
                         fontSize="small"
                     />
                     <Typography
@@ -40,7 +44,6 @@ export default function AppBar() {
                         sx={{
                             fontSize: "1.2rem",
                             fontWeight: "bold",
-                            color: "primary.main",
                         }}
                     >
                         Trello
@@ -51,7 +54,19 @@ export default function AppBar() {
                     <Recent></Recent>
                     <Starred></Starred>
                     <Templaces></Templaces>
-                    <Button variant="outlined" startIcon={<LibraryAddIcon />}>
+                    <Button
+                        variant="outlined"
+                        startIcon={<LibraryAddIcon />}
+                        sx={{
+                            "&:hover": {
+                                borderColor: "#FFFFFF",
+                                bgcolor: (theme) =>
+                                    theme.palette.mode === "dark"
+                                        ? "#2c3e50"
+                                        : "#0098ff",
+                            },
+                        }}
+                    >
                         Create
                     </Button>
                 </Box>
@@ -68,21 +83,47 @@ export default function AppBar() {
                     id="outlined-search"
                     type="search"
                     size="small"
-                    sx={{ minWidth: 120 }}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        ),
+                    }}
+                    sx={{
+                        minWidth: 120,
+                        "& label": { color: "white" },
+                        "& input": { color: "white" },
+                        "& label.Mui-focused": { color: "white" },
+                        "& .MuiOutlinedInput-root": {
+                            "& fieldset": {
+                                borderColor: "white",
+                            },
+                            "&.Mui-focused fieldset": {
+                                borderColor: "white",
+                            },
+                            color: "white",
+
+                            '& input[type="search"]::-webkit-search-cancel-button':
+                                {
+                                    "-webkit-appearance": "none",
+                                    appearance: "none",
+                                    height: "16px",
+                                    width: "16px",
+                                    background:
+                                        "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFF'%3E%3Cpath d='M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E\") no-repeat",
+                                    cursor: "pointer",
+                                },
+                        },
+                    }}
                 />
                 <ModeSelect></ModeSelect>
-                <Tooltip
-                    title="Notification"
-                    sx={{ cursor: "pointer", color: "primary.main" }}
-                >
-                    <Badge color="secondary" variant="dot">
+                <Tooltip title="Notification" sx={{ cursor: "pointer" }}>
+                    <Badge variant="dot">
                         <NotificationsNoneIcon />
                     </Badge>
                 </Tooltip>
-                <Tooltip
-                    title="Help"
-                    sx={{ cursor: "pointer", color: "primary.main" }}
-                >
+                <Tooltip title="Help" sx={{ cursor: "pointer" }}>
                     <HelpOutlineIcon></HelpOutlineIcon>
                 </Tooltip>
                 <Profiles></Profiles>
