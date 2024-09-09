@@ -82,7 +82,7 @@ export default function Column({ column }) {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    padding: "4px 0",
+                    padding: "4px 10px",
                     color: "#0586fa",
                 }}
             >
