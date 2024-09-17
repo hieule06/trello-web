@@ -75,7 +75,11 @@ export default function Column({ column }) {
                     },
                 }}
             >
-                <ListCards expanded={expanded} listCards={column?.cards} />
+                <ListCards
+                    expanded={expanded}
+                    listCards={column?.cards}
+                    cardOrderIds={column?.cardOrderIds}
+                />
             </Card>
             <Box
                 sx={{
