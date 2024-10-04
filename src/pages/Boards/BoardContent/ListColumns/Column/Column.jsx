@@ -22,7 +22,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Column({ column }) {
+export default function Column({ column, listeners }) {
     const [expanded, setExpanded] = React.useState(true);
 
     const handleExpandClick = () => {
@@ -37,6 +37,7 @@ export default function Column({ column }) {
                     theme.palette.mode === "dark" ? "#2c2c2c" : "#bdc3c7",
                 marginRight: "20px",
             }}
+            {...listeners}
         >
             <CardActions disableSpacing>
                 <Typography
@@ -75,7 +76,11 @@ export default function Column({ column }) {
                     },
                 }}
             >
-                <ListCards expanded={expanded} listCards={column?.cards} />
+                <ListCards
+                    expanded={expanded}
+                    listCards={column?.cards}
+                    cardOrderIds={column?.cardOrderIds}
+                />
             </Card>
             <Box
                 sx={{
