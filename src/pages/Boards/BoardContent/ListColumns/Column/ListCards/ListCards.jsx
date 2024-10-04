@@ -7,7 +7,8 @@ import {
     closestCenter,
     useSensor,
     useSensors,
-    PointerSensor,
+    MouseSensor,
+    TouchSensor
 } from "@dnd-kit/core";
 import { SortableContext, arrayMove, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
@@ -20,17 +21,18 @@ function SortableItem({ card, index }) {
         });
 
     const style = {
-        transform: CSS.Transform.toString(transform),
+        transform: CSS.Translate.toString(transform),
         transition,
     };
 
     return (
-        <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+        <div ref={setNodeRef} style={style} {...attributes}>
             <ItemCard
                 key={card?._id}
                 showImageCard={card?.cover}
                 itemCard={card}
                 indexCard={index}
+                listeners={listeners}
             />
         </div>
     );
@@ -39,7 +41,25 @@ function SortableItem({ card, index }) {
 export default function ListCards({ expanded, listCards, cardOrderIds }) {
     const [cards, setCards] = useState(cardOrderIds);
 
-    const sensors = useSensors(useSensor(PointerSensor));
+    const mouseSensor = useSensor(MouseSensor, {
+        activationConstraint: {
+            distance: 10,
+        },
+    });
+    const touchSensor = useSensor(TouchSensor, {
+        activationConstraint: {
+            delay: 250,
+            tolerance: 5,
+        },
+    });
+
+    const sensors = useSensors(
+        mouseSensor,
+        touchSensor,
+    );
+
+
+    // const sensors = useSensors(useSensor(PointerSensor));
 
     const handleDragEnd = (event) => {
         const { active, over } = event;

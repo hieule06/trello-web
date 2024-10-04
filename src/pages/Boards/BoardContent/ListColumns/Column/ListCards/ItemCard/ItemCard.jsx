@@ -9,7 +9,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import CommentIcon from "@mui/icons-material/Comment";
 import InsertLinkIcon from "@mui/icons-material/InsertLink";
 
-export default function ItemCard({ showImageCard, itemCard, indexCard }) {
+export default function ItemCard({ showImageCard, itemCard, indexCard, listeners }) {
     const isShowCardActions =
         !!itemCard?.memberIds.length ||
         !!itemCard?.comments.length ||
@@ -20,6 +20,7 @@ export default function ItemCard({ showImageCard, itemCard, indexCard }) {
                 cursor: "pointer",
                 margin: indexCard === 0 ? "0 0 10px 0" : "10px 0",
             }}
+            {...listeners}
         >
             <CardContent
                 sx={{
